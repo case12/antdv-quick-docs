@@ -78,9 +78,8 @@ function componentNameToDocsURL(componentName: string): string | undefined {
 		componentKey = componentParentMap[componentKey];
 	} 
 
-	componentKey = componentKey.replace(/-/g, '_');
 
-	return `https://www.antdv.com/components/${componentKey}#api`;
+	return `https://www.antdv.com/components/${encodeURIComponent(componentKey)}#api`;
   
 }
 
