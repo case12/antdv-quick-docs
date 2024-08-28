@@ -1,5 +1,6 @@
 {
   "name": "antdv-quick-docs",
+  "publisher": "case12",
   "displayName": "antdv-quick-docs",
   "description": "Quickly open up API docs for antdv components",
   "version": "0.0.1",
@@ -10,7 +11,7 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -29,22 +30,29 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "compile": "npm run check-types && node esbuild.js",
+    "check-types": "tsc --noEmit",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "vscode:build": "npm run package",
+    "build": "npm run check-types && node esbuild.js --production",
+    "package": "npm run build && npx @vscode/vsce package",
+    "publish": "npm run package && npx @vscode/vsce publish"
   },
   "devDependencies": {
-    "@types/vscode": "^1.92.0",
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
+    "@types/vscode": "^1.92.0",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.11.0",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
     "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0"
+    "@vscode/test-electron": "^2.4.0",
+    "esbuild": "^0.23.1",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
   }
 }

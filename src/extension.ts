@@ -52,6 +52,8 @@ function componentNameToDocsURL(componentName: string): string | undefined {
 		'form-item': 'form',
 		'input-group': 'input',
 		'input-search': 'input',
+		'input-password': 'input',
+		'textarea': 'input',
 		'menu-item': 'menu',
 		'sub-menu': 'menu',
 		'tab-pane': 'tabs',
