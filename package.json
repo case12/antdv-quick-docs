@@ -20,7 +20,7 @@
     "commands": [
       {
         "command": "extension.openAntdDocumentation",
-        "title": "Open Ant Design Vue Documentation"
+        "title": "Open AntD Vue Docs"
       }
     ],
     "menus": {
