@@ -7,4 +7,5 @@ Node v20
 VSCode extension for quickly opening antd vue documentation for components in the editor.
 
 To Use:
-Right click a vue component <a-button, click View Antd Documentation and it will open up a new window.
+1. Right click a vue component `<a-button ...`,
+2. Click `View AntD Vue Docs` in popup menu.
